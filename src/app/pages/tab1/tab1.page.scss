@@ -1,0 +1,89 @@
+.liverpool-icon {
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+  transition: transform 0.3s ease;
+  object-fit: contain;
+}
+
+.liverpool-icon:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+ion-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+// Estilo específico para el header colapsado
+ion-header[collapse="condense"] ion-title {
+  font-weight: bold;
+  
+  .liverpool-icon {
+    margin-right: 12px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+// Estilo para el header principal
+ion-header:not([collapse="condense"]) ion-title {
+  .liverpool-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+  }
+}
+
+// Contenedor de loading
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  
+  ion-spinner {
+    margin-bottom: 16px;
+    --color: var(--ion-color-primary);
+  }
+  
+  p {
+    color: var(--ion-color-medium);
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+// Mensaje cuando no hay artículos
+.no-articles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  
+  ion-icon {
+    color: var(--ion-color-medium);
+    margin-bottom: 16px;
+  }
+  
+  h3 {
+    color: var(--ion-color-dark);
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  p {
+    color: var(--ion-color-medium);
+    margin: 0;
+    font-size: 14px;
+  }
+}

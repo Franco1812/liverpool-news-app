@@ -1,0 +1,62 @@
+<ion-header [translucent]="true" mode="ios" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      <img src="assets/icon/favicon.png" class="liverpool-icon" alt="Liverpool FC Crest">
+      Liverpool FC News
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-header collapse="condense" mode="ios" class="ion-no-border">
+    <ion-toolbar>
+      <ion-title size="large">
+        <img src="assets/icon/favicon.png" class="liverpool-icon" alt="Liverpool FC Crest">
+        Liverpool FC News
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Pull to refresh -->
+  <ion-refresher slot="fixed" (ionRefresh)="refreshNews($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Desliza para actualizar"
+      refreshingSpinner="circles"
+      refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Loading spinner -->
+  <div *ngIf="isLoading" class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando noticias del Liverpool...</p>
+  </div>
+
+  <!-- Lista de artículos -->
+  <app-articles
+    [articles]="articles"
+    *ngIf="!isLoading">
+  </app-articles>
+
+  <!-- Mensaje si no hay artículos -->
+  <div *ngIf="!isLoading && articles.length === 0" class="no-articles">
+    <ion-icon name="newspaper-outline" size="large"></ion-icon>
+    <h3>No hay noticias disponibles</h3>
+    <p>Desliza hacia abajo para actualizar</p>
+  </div>
+
+  <!-- Infinite scroll para cargar más noticias -->
+  <ion-infinite-scroll
+    threshold="25%"
+    position="bottom"
+    (ionInfinite)="loadData()"
+    *ngIf="articles.length > 0">
+    <ion-infinite-scroll-content 
+      loadingSpinner="bubbles" 
+      loadingText="Cargando más noticias...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
