@@ -42,7 +42,7 @@ La aplicación obtiene noticias desde fuentes deportivas confiables:
 - Ionic CLI
 
 ### Demo
-![Demo App](src/assets/demoapp.png)
+<img src="src/assets/demoapp.png" alt="Demo App" width="300" height="auto" />
 
 
 **⚽ You'll Never Walk Alone! 🔴**
